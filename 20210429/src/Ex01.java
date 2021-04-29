@@ -32,9 +32,14 @@ public class Ex01 {
 		System.out.println(map.size()); //5개니까 5
 		System.out.println(map.get(5)); //5,ㅎㅇ5 ==> 키가 중복되지 않는다. 같은키를 가진 것을 5개를 연달아 썼어도 마지막 값만 나온다.
 		
-		Iterator<Integer> keys = map.keySet().iterator();
 		
-		//map2
-		HashMap<Integer, String > map2 = new HashMap<Integer, String>();
+		//map이 가지고 있는 모든 키를 알고 싶을때.
+		Iterator<Integer> keys = map.keySet().iterator(); //key값만 가져오고 싶을때 사용하는것 ==> keyset(); 사용후 iterator()형태로 저장해 주어야 함.
+		
+		//key가 있을때까지만 반복해라
+		while(keys.hasNext()) {
+			Integer key = keys.next();
+			System.out.println(map.get(key));
+		}
 	}
 }
