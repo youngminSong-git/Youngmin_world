@@ -16,9 +16,9 @@ public class Ex04Test {
 		ex = new Ex03("high3", "하하");
 		map.put(ex.getEmail(), ex);
 		
-		System.out.println(map.get(1).getName());
-		System.out.println(map.get(2).getName());
-		System.out.println(map.get(3).getName());
+		System.out.println(map.get("1").getName());
+		System.out.println(map.get("2").getName());
+		System.out.println(map.get("3").getName());
 		System.out.println(map.keySet()); //map에 담겨있는 전체 키
 		
 		//회원가입 만들 때, 회원 data를 담으려면 배열의 크기가 정해져 있으면 안되기 때문에, map은 자주 사용한다
