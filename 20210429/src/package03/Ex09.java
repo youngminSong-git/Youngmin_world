@@ -1,7 +1,7 @@
 package package03;
 
 public class Ex09 {
-	static String userId;
+	String userId;
 	String userEmail;
 	String userName;
 
