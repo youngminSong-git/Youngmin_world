@@ -11,11 +11,17 @@ public class Ex02 {
 		 크기를 마음대로 확장할 수 있는 자료형이 필요 ==> HashMap
 		*/
 		HashMap<String, String > map = new HashMap<String, String>();
-		map.put("high1", "ㅎㅇ1");
-		map.put("high2", "ㅎㅇ1");
-		map.put("high3", "ㅎㅇ1");
-		map.put("high4", "ㅎㅇ1");
+		map.put("high1", "ㅎㅇ1"); //key == 0
+		map.put("high2", "ㅎㅇ2");
+		map.put("high3", "ㅎㅇ3");
+		map.put("high4", "ㅎㅇ4");
 	
+		//map.put값의 키가 몇개가 저장되어 있는지 알수 없을 때,
+		System.out.println(map.keySet()); //배열형태로 받아오는걸 확인할 수 있다.
 		
+		//for each문 통해서도 사용 가능
+		for(String key : map.keySet()) {
+			System.out.println(map.get(key));
+		}
 	}
 }
