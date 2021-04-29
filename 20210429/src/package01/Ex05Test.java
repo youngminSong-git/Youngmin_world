@@ -17,5 +17,13 @@ public class Ex05Test {
 		map1.put(3.0, 3);
 		map1.put(4.0, 4);
 		System.out.println(map1.get(1.0)); //1이 출력 되는데, map1.get(); 자체가 정수이므로 소수점은 짤려서 나옴.
+		
+		int i = map1.get(1.0);
+		System.out.println(i); //1
+		
+		HashMap<Integer, Ex03 > map2 = new HashMap<Integer, Ex03>();
+		Ex03 ex = new Ex03("high0", "ㅎ1");
+		map2.put(ex.idx, ex);
+		System.out.println(map2.get(1).getEmail());
 	}
 }
