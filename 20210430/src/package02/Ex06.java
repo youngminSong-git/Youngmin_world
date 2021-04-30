@@ -7,6 +7,14 @@ public class Ex06 {
 		this.company = company;
 		this.os = os;
 	}
+	public String getOs() {
+		return this.os;
+	}
+	
+	@Override
+	public String toString() {
+		return company + " , "  + os;
+	}
 	
 	@Override
 	public boolean equals(Object obj) {
