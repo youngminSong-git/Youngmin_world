@@ -7,16 +7,16 @@ import java.util.List;
 public class Ex01Test {
 	public static void main(String[] args) {
 		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("1", "»ç¶÷1");
-		map.put("2", "»ç¶÷2");
+		map.put("1", "ì‚¬ëŒ1");
+		map.put("2", "ì‚¬ëŒ2");
 		
 		for(String key : map.keySet()) {
 			System.out.println(map.get(key));
 		}
 		
 		List<String> list = new ArrayList<String>();
-		list.add("»ç¶÷1");
-		list.add("»ç¶÷2");
+		list.add("ì‚¬ëŒ1");
+		list.add("ì‚¬ëŒ2");
 		
 		for(String val : list) {
 			System.out.println(val);
