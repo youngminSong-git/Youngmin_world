@@ -43,6 +43,6 @@ public class Ex16Test {
 모든 데이터 삭제 : clear();
 한 데이터만 삭제 : remove(), remove(키, 값);
 맵의 크기 : size() //length아님
-
+키의 존재 여부 확인 : containsKey()
  */
  

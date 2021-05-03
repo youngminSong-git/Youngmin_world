@@ -27,6 +27,5 @@ public class Ex17Test {
 			String str1 = map1.get(i);
 			System.out.println(str1);
 		}
-		
 	}
 }
