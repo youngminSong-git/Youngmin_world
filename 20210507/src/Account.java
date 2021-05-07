@@ -12,4 +12,12 @@ public class Account {
 	public void setDeposit(int money) {
 		this.balance += money;
 	}
+	
+	public void setWithdraw(int money) {
+		this.balance -= money;
+	}
+	
+	public void print() {
+		System.out.println(accNum + " \t " + accName + " \t " + balance);
+	}
 }
