@@ -11,7 +11,7 @@ public class Ex02Test {
 		int dan1 = sc.nextInt();
 		
 		System.out.println("끝단 입력하세요.");
-		int	dan2 = sc.nextInt();
+		int dan2 = sc.nextInt();
 		
 		System.out.println("시작하는 곱셈 입력하세요.");
 		int	gop1 = sc.nextInt();
