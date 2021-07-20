@@ -7,10 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<ul>
-	<li><a href="empInfo">내정보</a></li>
-	<li><a href="empPwForm">비밀번호 변경</a></li>
-	<li><a href="#"></a></li>
-</ul>
+	임시비밀번호가 ${email}로 전송되었습니다.
 </body>
 </html>

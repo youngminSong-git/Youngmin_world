@@ -13,17 +13,11 @@ import repository.MemberRepository;
 public class MemberInfoService {
 	@Autowired
 	MemberRepository memberRepository;
+	
 	public void memInfo(Model model, HttpSession session) {
 		AuthInfoDTO authInfo = (AuthInfoDTO)session.getAttribute("authInfo");
 		String memId = authInfo.getUserId();
 		MemberDTO dto = memberRepository.memInfo(memId);
-		model.addAttribute("dto", dto);
+		model.addAttribute("memberCommand", dto);
 	}
-	
-	public void memInfo2(String memId, Model model) {
-		MemberDTO dto = memberRepository.memInfo(memId);
-		model.addAttribute("mem", dto);
-	}
-	
-	
 }

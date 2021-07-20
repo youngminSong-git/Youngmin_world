@@ -12,8 +12,7 @@ import repository.GoodsRepository;
 public class GoodsCartAddService {
 	@Autowired
 	GoodsRepository goodsRepository;
-	public void cartAdd(int cartQty, String prodNum, 
-			int prodPrice, HttpSession session, Model model) {
+	public void cartAdd(int cartQty, String prodNum, int prodPrice, HttpSession session, Model model) {
 		CartDTO dto = new CartDTO();
 		AuthInfoDTO authInfo = (AuthInfoDTO)session.getAttribute("authInfo");
 		dto.setMemId(authInfo.getUserId());

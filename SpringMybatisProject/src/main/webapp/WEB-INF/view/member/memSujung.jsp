@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,23 +69,33 @@
 </script>
 </head>
 <body>
-<form action="memModifyOk.mem" method="post" name="frm"> 
-<input type="hidden" name="memId" value="${dto.memId }" />
+<form:form action="memSujungOk" method="post" name="frm" modelAttribute="memberCommand"> 
+	<form:hidden path="memId" />
+	<form:hidden path="memName" />
+	<input type="hidden" name="memBirth" value="<fmt:formatDate value="${memberCommand.memBirth }" type="date" pattern="yyyy-MM-dd"/>"/>
+	<form:hidden path="memGender" />
 	<table>
 		<caption>멤수정</caption>
 		<tbody>
 			<tr>
 				<td>아이디</td>
-				<td> ${dto.memId}</td>
+				<td> ${memberCommand.memId}</td>
+			</tr>
+			<tr>
+				<th>비밀번호</th>
+				<td>
+					<input type="password" name="memPw" />
+					<form:errors path = "memPw"/>
+				</td>
 			</tr>
 			<tr>
 				<td>이름</td>
-				<td> ${dto.memName} </td>
+				<td> ${memberCommand.memName} </td>
 			</tr>
 			<tr>
 				<td>우편번호</td>
 				<td>
-					<input type="text" name="postNumber" id="sample4_postcode" value="${dto.postNumber }">
+					<form:input path="postNumber" id="sample4_postcode" readonly="true" />
 				</td>
 			</tr>
 			<tr>
@@ -94,40 +106,40 @@
 				</td>
 			</tr>
 			<tr><td>상세주소</td>
-				<td><input type="text" name="detailAdd" value="${dto.detailAdd }"></td>
+				<td><form:input path="detailAdd" /></td>
 			</tr>
 			<tr>
 				<td>연락처</td>
-				<td><input type="text" name="memPhone" value="${dto.memPhone }"></td>
+				<td><form:input path="memPhone" /></td>
 			</tr>
 			<tr>
 				<td>이메일</td>
-				<td><input type="text" name="memEmail" value="${dto.memEmail }"></td>
+				<td><form:input path="memEmail" /></td>
 			</tr>
 			<tr>
 				<td>생년월일</td>
 				<td>
-					<input type="text" name="memBirth" value="${dto.memBirth }">
+					<fmt:formatDate value="${memberCommand.memBirth }" type="date" pattern="yyyy-MM-dd"/>
 				</td>
 			</tr>
 			<tr>
 				<td>성별</td>
 				<td>
-					<c:if test="${dto.memGender == 'M'}">남자</c:if>
-					<c:if test="${dto.memGender == 'F'}">여자</c:if>
+					<c:if test="${memberCommand.memGender == 'M'}">남자</c:if>
+					<c:if test="${memberCommand.memGender == 'F'}">여자</c:if>
 				</td>
 			</tr>
 			<tr>
 				<td>계좌번호</td>
 				<td>
-					<input type="text" name="memAccount" value="${dto.memAccount }">
+					<form:input path="memAccount" />
 				</td>
 			</tr>
 			<tr>
 				<td>이메일 수신여부</td>
 				<td>
-					<input type="radio" name="memEmailCk" value="Y"<c:if test="${dto.memEmailCk == 'Y'}">checked</c:if>>예			
-					<input type="radio" name="memEmailCk" value="N"<c:if test="${dto.memEmailCk == 'N'}">checked</c:if>>아니오
+					<input type="radio" name="memEmailCk" value="Y"<c:if test="${memberCommand.memEmailCk == 'Y'}">checked</c:if>>예			
+					<input type="radio" name="memEmailCk" value="N"<c:if test="${memberCommand.memEmailCk == 'N'}">checked</c:if>>아니오
 				</td>
 			</tr>
 			<tr>
@@ -138,6 +150,6 @@
 			</tr>
 		</tbody>
 	</table>
-</form>
+</form:form>
 </body>
 </html>

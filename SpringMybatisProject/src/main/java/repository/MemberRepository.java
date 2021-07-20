@@ -13,6 +13,10 @@ public class MemberRepository {
 	String namespace = "mappers.memberMapper";
 	String statement;
 	
+	public MemberDTO idFind(MemberDTO dto) {
+		statement = namespace + ".idFind";
+		return sqlSession.selectOne(statement, dto);
+	}
 	
 	public int updateCkOk(MemberDTO dto) {
 		statement = namespace +".updateCkOk";

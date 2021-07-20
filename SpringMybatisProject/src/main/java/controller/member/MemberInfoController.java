@@ -34,18 +34,6 @@ public class MemberInfoController {
 	@Autowired
 	MemberInfoService memberInfoService;
 	 
-	@RequestMapping("memModify")
-	public String memMod2(@RequestParam(value="memId") String memId, Model model) {
-		memberInfoService.memInfo2(memId, model);
-		return "member/memberModify";
-	}
-	
-	@RequestMapping("memInfo")
-	public String memInfo2(@RequestParam(value="memId") String memId, Model model) {
-		memberInfoService.memInfo2(memId, model);
-		return "member/memberInfo";
-	}
-	
 	@RequestMapping("memDel")
 	public String memDel(@RequestParam(value = "memId") String memId) {
 		memberDeleteService.memDel(memId);
@@ -55,7 +43,13 @@ public class MemberInfoController {
 	@RequestMapping(value="memModifyOk", method = RequestMethod.POST)
 	public String memUpdate(MemberCommand memberCommand) {
 		memberUpdateService.memUpdate(memberCommand);
-		return "redirect:memList";
+		String encodedParam = "";
+		try {
+			encodedParam = URLEncoder.encode(memberCommand.getMemId(), "utf-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		return "redirect:memInfo/"+encodedParam;
 	}
 	
 	@RequestMapping("memList")

@@ -68,7 +68,9 @@
 											</tr>
 											<tr>
 												<td>
-													<a href="register/agree">회원가입</a>	
+													<a href="register/agree">회원가입</a>
+													<a href="#">아이디</a> |
+													<a href="#">비밀번호 찾기</a>
 												</td>
 											</tr>
 										</tbody>
@@ -92,6 +94,36 @@
 										<a href="cart/OrderProcessList">구매확인</a>
 									</li>
 								</ul>
+								<table class="table2">
+									<tbody>
+										<tr>
+											<c:forEach items="${lists}" var="dto" varStatus="cnt">
+												<td>
+													<a href="prod/goodsView?prodNum=${dto.prodNum}">
+														<c:if test="${dto.prodImage != null}">
+															<img src="goods/upload/${dto.prodImage.split(',')[0]}" alt="상품이미지" style="width:200px; height:200px;" />
+														</c:if>
+													</a>
+													<br />
+													<c:if test="${dto.prodImage==null}">
+													
+													</c:if>
+													${dto.prodName} <br />
+													<fmt:formatNumber value="${dto.prodPrice}" type="currency" />
+												</td>
+												<c:if test="${cnt.count % 3 == 0}">
+										</tr>
+										<tr>
+												</c:if>
+											</c:forEach>
+											<colgroup>
+												<col style="width:33.3%" />
+												<col style="width:33.3%" />
+												<col style="width:33.3%"/>
+											</colgroup>
+										</tr>
+									</tbody>
+								</table>
 							</c:if>
 							<!-- //일반 사용자단  -->
 							<!-- 관리자단 -->
@@ -104,12 +136,11 @@
 												관리자페이지입니다.	
 											</h2>
 											<ul class="list_wrap">
-												<li><a href="employee/mypage">마이페이지 바로가기</a></li>
+												<li><a href="employee/myPage">마이페이지 바로가기</a></li>
 												<li><a href="member/memList">회원리스트 바로가기</a></li>
 												<li><a href="emp/empList">직원리스트 바로가기</a></li>
 												<li><a href="goods/goodsList">상품리스트</a></li>
 												<li><a href="admin/noticeList">공지사항</a></li>
-												
 											</ul>
 										</div>
 									</div>
@@ -120,36 +151,6 @@
 							</div>
 							<!-- //관리자단  -->
 						</c:if>
-						<table class="table2">
-							<tbody>
-								<tr>
-									<c:forEach items="${lists}" var="dto" varStatus="cnt">
-										<td>
-											<a href="prod/goodsView?prodNum=${dto.prodNum}">
-												<c:if test="${dto.prodImage != null}">
-													<img src="goods/upload/${dto.prodImage.split(',')[0]}" alt="상품이미지" style="width:200px; height:200px;" />
-												</c:if>
-											</a>
-											<br />
-											<c:if test="${dto.prodImage==null}">
-											
-											</c:if>
-											${dto.prodName} <br />
-											<fmt:formatNumber value="${dto.prodPrice}" type="currency" />
-										</td>
-										<c:if test="${cnt.count % 3 == 0}">
-								</tr>
-								<tr>
-										</c:if>
-									</c:forEach>
-									<colgroup>
-										<col style="width:33.3%" />
-										<col style="width:33.3%" />
-										<col style="width:33.3%"/>
-									</colgroup>
-								</tr>
-							</tbody>
-						</table>
 						<!-- //로그인 된 경우 -->
 					</div>
 				</div>

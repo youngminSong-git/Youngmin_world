@@ -8,49 +8,80 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import command.EmployeeCommand;
 import service.employee.EmployeeDetailService;
-import service.employee.EmployeeInfoService;
-import service.employee.EmployeeModifyService;
+import service.employee.EmployeeInfoUpdateService;
+import service.employee.EmployeePwModifyService;
+import service.employee.EmployeePwUpdateService;
 import validator.EmployeeUpdateValidator;
 
 @Controller
 @RequestMapping("employee")
 public class EmployeeMyPageController {
 	@Autowired
-	EmployeeInfoService employeeInfoService;
-	@Autowired
-	EmployeeModifyService employeeModifyService;
-	@Autowired
 	EmployeeDetailService employeeDetailService;
+	@Autowired
+	EmployeeInfoUpdateService employeeInfoUpdateService;
+	@Autowired
+	EmployeePwUpdateService employeePwUpdateService;
+	@Autowired
+	EmployeePwModifyService employeePwModifyService;
 	
-	@RequestMapping(value="empUpdateOk", method=RequestMethod.POST)
-	public String empUpdateOk(EmployeeCommand employeeCommand, Errors error) {
-		new EmployeeUpdateValidator().validate(employeeCommand, error);
+	
+	@RequestMapping("search/idFind")
+	public String idFind() {
 		
-		if(error.hasErrors()) {
-			return "";
+		return "main/idSearch";
+	}
+	
+	@RequestMapping(value="empPwUpdateOk", method = RequestMethod.POST)
+	public String empPwUpdateOk(EmployeeCommand employeeCommand, Errors errors, HttpSession session) {
+		employeePwModifyService.pwUpdateOk(employeeCommand, errors, session);
+		if(errors.hasErrors()) {
+			return "employee/empPwUpdate";
 		}
-		
+		return "redirect:myPage";
+	}
+	@RequestMapping(value = "empPwUpdate", method = RequestMethod.POST)
+	public String empPwUpdate(
+			@RequestParam(value="empPw") String empPw, Model model,
+			HttpSession session) {
+		int i = employeePwUpdateService.empPwUpdate(empPw, model, session);
+		if(i == 1) {
+			return "employee/empPwForm";
+		}else {
+			return "employee/empPwUpdate";
+		}
+	}
+	
+	@RequestMapping("empPwForm")
+	public String empPwForm() {
+		return "employee/empPwForm";
+	}
+	
+	@RequestMapping(value = "empUpdateOk" ,method = RequestMethod.POST)
+	public String empUpdateOk(EmployeeCommand employeeCommand, Errors errors,HttpSession session) {
+		new EmployeeUpdateValidator().validate(employeeCommand, errors);
+		employeeInfoUpdateService.empUpdate(employeeCommand, errors, session);
+		if(errors.hasErrors()) {
+			return "employee/empUpdate";
+		}
 		return "redirect:empInfo";
 	}
-	
-	@RequestMapping("empupdate")
-	public String empUpdate(HttpSession session, Model model) {
-		employeeDetailService.empInfo(session, model);
+	@RequestMapping("empUpdate")
+	public String empUpdate(HttpSession session,Model model) {
+		employeeDetailService.empInfo(session,model);
 		return "employee/empUpdate";
 	}
-	
-	
 	@RequestMapping("empInfo")
-	public String empInfo(HttpSession session, Model model) {
-		employeeDetailService.empInfo(session, model);
+	public String empInfo(HttpSession session,Model model) {
+		employeeDetailService.empInfo(session,model);
 		return "employee/empDetail";
 	}
-	
 	@RequestMapping("myPage")
-	public String myPage() {
+	public String mapage() {
 		return "employee/empMyPage";
 	}
 }

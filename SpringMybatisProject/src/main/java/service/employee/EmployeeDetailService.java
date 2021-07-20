@@ -16,6 +16,6 @@ public class EmployeeDetailService {
 		AuthInfoDTO authInfo = (AuthInfoDTO)session.getAttribute("authInfo"); //session으로부터 내정보 받아오기.
 		String empId = authInfo.getUserId();
 		EmployeeDTO dto = employeeRepository.empDetail(empId);
-		model.addAttribute("dto", dto);
+		model.addAttribute("employeeCommand", dto);
 	}
 }

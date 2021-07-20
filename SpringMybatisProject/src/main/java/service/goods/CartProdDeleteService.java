@@ -12,8 +12,7 @@ public class CartProdDeleteService {
 	@Autowired
 	GoodsRepository goodsRepository; 
 	public void cartProdDel(String prodNum, HttpSession session) {
-		AuthInfoDTO authInfo = 
-				(AuthInfoDTO)session.getAttribute("authInfo");
+		AuthInfoDTO authInfo = (AuthInfoDTO)session.getAttribute("authInfo");
 		String memId= authInfo.getUserId();
 		CartDTO dto = new CartDTO();
 		dto.setProdNum(prodNum);

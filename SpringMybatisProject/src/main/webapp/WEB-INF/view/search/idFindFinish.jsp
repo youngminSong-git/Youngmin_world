@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" isELIgnored="false"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,10 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<ul>
-	<li><a href="empInfo">내정보</a></li>
-	<li><a href="empPwForm">비밀번호 변경</a></li>
-	<li><a href="#"></a></li>
-</ul>
+	<c:if test="${memId == null}">입력한 정보가 부족하여 아이디를 찾지 못했습니다.</c:if>
+	<c:></c:>
 </body>
 </html>

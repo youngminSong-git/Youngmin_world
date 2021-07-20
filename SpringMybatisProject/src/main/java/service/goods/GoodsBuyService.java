@@ -16,8 +16,7 @@ import repository.GoodsRepository;
 public class GoodsBuyService {
 	@Autowired
 	GoodsRepository goodsRepository;
-	public void goodsBuy(String [] prodNums, HttpSession session,
-			Model model) {
+	public void goodsBuy(String [] prodNums, HttpSession session, Model model) {
 		AuthInfoDTO authInfo = (AuthInfoDTO)session.getAttribute("authInfo");
 		String memId = authInfo.getUserId();
 		List<ProductCartDTO> list = new ArrayList<ProductCartDTO>();
