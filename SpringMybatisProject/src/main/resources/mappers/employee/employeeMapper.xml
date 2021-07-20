@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.employeeMapper">
+	<select id="empDetail" parameterType="string" resultType="Model.EmployeeDTO">
+		select <include refid="baseColum"/>
+		from employees
+		where emp_userId = #{empId}
+	</select>
+	
+	<sql id="baseColum">
+		EMPLOYEE_ID employeeId, EMP_USERID empUserId, EMP_PW empPw, EMP_NAME empName, 
+	    HIRE_DATE hireDate, JOB_ID jobId, PH_NUMBER phNumber, 
+	    OFFICE_NUMBER officeNumber, EMAIL email, EMP_ADDRESS empAddress
+	</sql>
+	
+	<delete id="empDelete" parameterType="string">
+		delete from employees
+		where EMPLOYEE_ID = #{empId}
+	</delete>
+	
+	<update id="empUpdate" parameterType="Model.EmployeeDTO">
+		update employees
+		set JOB_id = #{jobId}, PH_NUMBER = #{phNumber}, 
+			OFFICE_NUMBER = #{officeNumber}, EMAIL = #{email},
+			EMP_ADDRESS = #{empAddress}
+		where EMPLOYEE_ID = ${employeeId}
+	</update>
+	
+	<select resultType="string" id="empNo">
+		select nvl(max(EMPLOYEE_ID), 100000) + 1 from employees
+	</select>
+	<select id="empInfo" parameterType="string" resultType="Model.EmployeeDTO">
+		select <include refid="baseColum" />
+		from employees
+		where EMPLOYEE_ID = #{empId}
+	</select>
+	<select id="empList" resultType="Model.EmployeeDTO"> <!-- 파라미터 없으므로 파라미터 안적어주어도 됨 -->
+		select <include refid="baseColum" />
+		from employees
+	</select>
+	<insert id="empInsert" parameterType="Model.EmployeeDTO">
+		insert into 
+		employees(
+		EMPLOYEE_ID, EMP_USERID, EMP_PW, EMP_NAME, HIRE_DATE, 
+		JOB_ID, PH_NUMBER, OFFICE_NUMBER, EMAIL, EMP_ADDRESS)
+		values(
+		#{employeeId}, #{empUserId}, #{empPw}, #{empName},
+		#{hireDate}, #{jobId}, #{phNumber}, #{officeNumber}, #{email}, #{empAddress})
+	</insert>
+</mapper>
