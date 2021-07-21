@@ -1,0 +1,52 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/common.css" />
+<style>
+	table{border:1px solid #000;}
+</style>
+</head>
+<body>
+	<table style="width:800px">
+		<tbody>
+			<tr>
+				<td>주문일(결제번호)</td>
+				<td>상품명/주문번호</td>
+				<td>판매자</td>
+				<td>주문상태</td>
+			</tr>
+			<c:forEach items="${list}" var="dto">
+				<tr>
+					<td>${dto.purchaseDate} / ${dto.paymentApprNum}</td>
+					<td rowspan="2">
+						<img style="width:50px;" src="goods/upload/${dto.prodImage.split(',')[0] }" />${dto.prodName } / ${dto.purchaseNum }
+					</td>
+					<td rowspan="2">${dto.prodSupplyer}</td>
+					<td rowspan="2">
+						<c:if test="${dto.paymentApprNum == null}">
+							<a href="paymentOk?purchNo=${dto.purchaseNum }&payPrice=${dto.purchaseTotPrice }">결제하기</a>
+						</c:if>
+					   <c:if test="${dto.paymentApprNum != null}">
+					   	      결제완료<br />
+						   <c:if test="${dto.reviewContent == null }">
+						   		<a href="goodsReview?purchaseNum=${dto.purchaseNum }&prodNum=${dto.prodNum }">리뷰작성</a>
+						   </c:if>		
+						   <c:if test="${dto.reviewContent != null }">
+						   		<a href="goodsReviewUpdate?purchaseNum=${dto.purchaseNum }&prodNum=${dto.prodNum }">리뷰수정</a>
+						   </c:if>				  
+					   </c:if>
+					</td>
+				</tr>	
+				<tr>
+					<td>결제금액 : ${dto.purchaseTotPrice}</td>
+				</tr>		
+			</c:forEach>
+		</tbody>
+	</table>
+</body>
+</html>

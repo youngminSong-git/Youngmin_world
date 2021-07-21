@@ -1,0 +1,17 @@
+@charset "UTF-8";
+.inner{width:1280px; margin:0 auto;}
+
+/* login */
+.main_table_wrap{display:inline-block; width:100%; text-align:center; margin-bottom:30px;}
+.main_table_wrap .form{display:inline-block;}
+.main_table_wrap .login_tit{padding-top:100px; margin-bottom:30px; font-size:32px;}
+.main_table_wrap tr{text-align:left;}
+.main_table_wrap .autoLogin{display:block; width:100%; margin-bottom:20px;}
+
+.table2{}
+.table2 tr td{text-align:center;}
+/* emp_list */
+.emp1 .inner .emp_tit{padding:100px 0 50px; margin-bottom:50px; text-align:center; font-size:32px; font-weight:500; border-bottom:1px solid #ccc;}
+.emp1 .inner .list_wrap{overflow:hidden;}
+.emp1 .inner .list_wrap li{float:left; width:20%; text-align:center; border-right:1px solid #ccc; box-sizing:border-box;}
+.emp1 .inner .list_wrap li:last-child{border-right:none;}
