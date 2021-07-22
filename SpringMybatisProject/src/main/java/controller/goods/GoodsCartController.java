@@ -52,15 +52,13 @@ public class GoodsCartController {
 	
 	
 	@RequestMapping("goodsCartRemove")
-	public String goodsCartRemove(@RequestParam(value ="prodNums") String prodNums,
-			HttpSession session) {
+	public String goodsCartRemove(@RequestParam(value ="prodNums") String prodNums, HttpSession session) {
 		goodsCartRemoveService.cartRemove(prodNums, session);
 		return "redirect:goodsCartList";
 	}
 	
 	@RequestMapping("cartProdDel")
-	public String cartProdDel(@RequestParam(value = "prodNum") String prodNum,
-			HttpSession session) {
+	public String cartProdDel(@RequestParam(value = "prodNum") String prodNum, HttpSession session) {
 		cartProdDeleteService.cartProdDel(prodNum,session);
 		return "redirect:goodsCartList";
 	}
@@ -80,16 +78,16 @@ public class GoodsCartController {
 		return "goods/goodsReviewModify";
 	}
 	
-	@RequestMapping(value="reviewWrite", method = RequestMethod.POST)
-	public String reviewWrite(ReviewCommand reviewCommand, HttpSession session) {
+	@RequestMapping(value = "reviewWrite", method = RequestMethod.POST)
+	public String reviewWrite(ReviewCommand reviewCommand,HttpSession session) {
 		reviewWriteService.reviewWrite(reviewCommand,session);
 		return "redirect:OrderProcessList";
 	}
 	
 	@RequestMapping("goodsReview")
 	public String goodsReview(
-			@RequestParam(value="purchaseNum") String purchaseNum,
-			@RequestParam(value="prodNum") String prodNum ) {
+			@ModelAttribute(value="purchaseNum") String purchaseNum,
+			@ModelAttribute(value="prodNum") String prodNum ) {
 		return "goods/goodsReview";
 	}
 	

@@ -67,80 +67,80 @@
 </script>
 </head>
 <body>
-<form action="memModifyOk" method="post" name="frm"> 
-<input type="hidden" name="memId" value="${mem.memId }" />
+<form action="../memModifyOk" method="post" name="frm"> 
+<input type="hidden" name="memId" value="${lists[0].memId }" />
 	<table>
 		<tbody>
 			<tr>
 				<th>아이디</th>
-				<td> ${mem.memId }</td>
+				<td> ${lists[0].memId }</td>
 			</tr>
 			<tr>
 				<th>이름</th>
-				<td> ${mem.memName } </td>
+				<td> ${lists[0].memName } </td>
 			</tr>
 			<tr>
 				<th>우편번호</th>
 				<td>
-					<input type="text" name="postNumber" id="sample4_postcode" value="${mem.postNumber }">
+					<input type="text" name="postNumber" id="sample4_postcode" value="${lists[0].postNumber }">
 				</td>
 			</tr>
 			<tr>
 				<th>주소</th>
 				<td>
-					<input type="text" name="memAddress" id="sample4_roadAddress" value="${mem.memAddress }" size="30">
+					<input type="text" name="memAddress" id="sample4_roadAddress" value="${lists[0].memAddress }" size="30">
 					<a href="javascript:sample4_execDaumPostcode();">주소 검색</a>
 				</td>
 			</tr>
 			<tr>
 				<th>상세주소</th>
 				<td>
-					<input type="text" name="detailAdd" value="${mem.detailAdd }">
+					<input type="text" name="detailAdd" value="${lists[0].detailAdd }">
 				</td>
 			</tr>
 			<tr>
 				<th>연락처</th>
 				<td>
-					<input type="text" name="memPhone" value="${mem.memPhone }">
+					<input type="text" name="memPhone" value="${lists[0].memPhone }">
 				</td>
 			</tr>
 			<tr>
 				<th>이메일</th>
 				<td>
-					<input type="text" name="memEmail" value="${mem.memEmail }">
+					<input type="text" name="memEmail" value="${lists[0].memEmail }">
 				</td>
 			</tr>
 			<tr>
 				<th>생년월일</th>
 				<td>
-					<fmt:formatDate value='${mem.memBirth }' type='date' pattern='yyyy-MM-dd'/>
+					<fmt:formatDate value='${lists[0].memBirth }' type='date' pattern='yyyy-MM-dd'/>
 				</td>
 			</tr>
 			<tr>
 				<th>성별</th>
 				<td>
-					<c:if test="${mem.memGender == 'M'}">남자</c:if>
-					<c:if test="${mem.memGender == 'F'}">여자</c:if>
+					<c:if test="${lists[0].memGender == 'M'}">남자</c:if>
+					<c:if test="${lists[0].memGender == 'F'}">여자</c:if>
 				</td>
 			</tr>
 			<tr>
 				<th>계좌번호</th>
 				<td>
-					<input type="text" name="memAccount" value="${mem.memAccount }">
+					<input type="text" name="memAccount" value="${lists[0].memAccount }">
 				</td>
 			</tr>
 			<tr>
 				<th>이메일 수신여부</th>
 				<td>
-					<input type="radio" name="memEmailCk" value="Y" <c:if test="${mem.memEmailCk == 'Y'}">checked</c:if>>예			
-					<input type="radio" name="memEmailCk" value="N" <c:if test="${mem.memEmailCk == 'N'}">checked</c:if>>아니오
+					<input type="radio" name="memEmailCk" value="Y" <c:if test="${lists[0].memEmailCk == 'Y'}">checked</c:if>>예			
+					<input type="radio" name="memEmailCk" value="N" <c:if test="${lists[0].memEmailCk == 'N'}">checked</c:if>>아니오
 				</td>
 			</tr>
 			<tr> 
 				<td colspan="2">
 					<input type="submit" value="수정 완료" />
 					<input type="button"  value="수정 안함" onclick="javascript:history.back();" />
-					<input type="button"  value="회원 강퇴" onclick="javascript:location.href='memDel?memId=${mem.memId }'" />
+					<input type="button"  value="회원 강퇴" onclick="javascript:location.href='../memDel?memId=${lists[0].memId }'" />
 				</td>
 			</tr>
 		</tbody>

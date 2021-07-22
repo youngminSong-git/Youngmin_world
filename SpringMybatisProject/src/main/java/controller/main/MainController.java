@@ -37,7 +37,7 @@ public class MainController {
 	
 	@RequestMapping("main")
 	public String aaa(@ModelAttribute LoginCommand loginCommand, Model model) {
-		goodsListService.goodsList(model);
+		goodsListService.goodsList(model, null);
 		return "main/main";
 	}
 }

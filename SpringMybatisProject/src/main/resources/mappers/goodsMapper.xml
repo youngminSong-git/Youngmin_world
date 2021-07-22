@@ -85,9 +85,9 @@ WHERE P.PROD_NUM = R.PROD_NUM(+) AND P.PROD_NUM = #{prodNum}
 
 <insert id="reviewWrite" parameterType="Model.ReviewDTO">
 	insert into review(PURCHASE_NUM, PROD_NUM, REVIEW_DATE, REVIEW_CONTENT, REVIEW_IMG)
-	values(#{purchaseNum}, #{prodNum}, sysdate, #{reviewContent}, null)
+	values(#{purchaseNum}, #{prodNum}, sysdate, #{reviewContent},
 	<if test="reviewImg != null">#{reviewImg}</if>
-	<if test="reviewImg == null">null</if>
+	<if test="reviewImg == null">null</if>)
 </insert>
 
 

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="reviewUpdate.gd" method="post" >
-<input type="hidden" name="prodNum1" value="${dto.prodNum }"/>
-<input type="hidden" name="purchaseNum1" value="${dto.purchaseNum }" />
+<form action="reviewUpdate" method="post" >
+<input type="hidden" name="prodNum" value="${dto.prodNum }"/>
+<input type="hidden" name="purchaseNum" value="${dto.purchaseNum }" />
 <table>
 	<tbody>
 		<tr>

@@ -61,6 +61,11 @@
 													</td>
 													<td>${dto.officeNumber}</td>
 												</tr>
+												<tr>
+													<td colspan="5">
+														<%@ include file="../include/includePage.jsp" %>
+													</td>
+												</tr>
 											</c:forEach>
 										</tbody>
 									</tbody>

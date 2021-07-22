@@ -1,3 +1,4 @@
+  
 package Model;
 /// 디비에 값을 전달하거나  디비로 부터 값을 받아오기 위해서 생성
 public class GoodsDTO {
@@ -13,6 +14,15 @@ public class GoodsDTO {
 	String employeeId;
 	String ctgr;
 	
+	StartEndPageDTO startEndPageDTO;
+	public StartEndPageDTO getStartEndPageDTO() {
+		return startEndPageDTO;
+	}
+	public void setStartEndPageDTO(StartEndPageDTO startEndPageDTO) {
+		this.startEndPageDTO = startEndPageDTO;
+	}
+	
+
 	public Long getProdNum() {
 		return prodNum;
 	}

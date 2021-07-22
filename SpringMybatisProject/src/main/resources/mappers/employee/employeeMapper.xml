@@ -45,7 +45,7 @@ where emp_userid = #{empId}
 </update>
 
 <select id="empNo" resultType="string">
-	select nvl(max(EMPLOYEE_ID),0) + 1 from employees
+	select nvl(max(EMPLOYEE_ID),10000) + 1 from employees
 </select>
 
 <select id="empInfo" parameterType="string" resultType="Model.EmployeeDTO">

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +8,8 @@
 </head>
 <body>
 <form action="reviewWrite" method="post" enctype="multipart/form-data">
-	<input type="hidden" name="prodNum" value="${prodNum1 }"/>
-	<input type="hidden" name="purchaseNum" value="${purchaseNum1 }" />
+	<input type="hidden" name="prodNum" value="${prodNum}"/>
+	<input type="hidden" name="purchaseNum" value="${purchaseNum}" />
 	<table >
 		<tbody>
 			<tr>

@@ -32,11 +32,7 @@ public class ReviewWriteService {
 			String store = UUID.randomUUID().toString().replace("-", "") + originalExt;
 			String realPath = session.getServletContext().getRealPath("goods/upload");
 			File f = new File(realPath + "/" + store);
-			try{
-				mf.transferTo(f);
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
+			try{mf.transferTo(f);}catch(Exception e) {e.printStackTrace();}
 			dto.setReviewImg(store);			
 		}
 		goodsRepository.reviewWrite(dto);

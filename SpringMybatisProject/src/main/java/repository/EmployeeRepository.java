@@ -44,6 +44,10 @@ public class EmployeeRepository {
 		statement = namespace + ".empList";
 		return sqlSession.selectList(statement, dto);
 	}
+	public int count() {
+		statement = namespace + ".count";
+		return sqlSession.selectOne(statement);
+	}
 	public void empInsert(EmployeeDTO dto) {
 		statement = namespace + ".empInsert";
 		int i = sqlSession.insert(statement,dto);
@@ -51,10 +55,6 @@ public class EmployeeRepository {
 	}
 	public String empNo() {
 		statement = namespace + ".empNo";
-		return sqlSession.selectOne(statement);
-	}
-	public int count() {
-		statement = namespace + ".count";
 		return sqlSession.selectOne(statement);
 	}
 }

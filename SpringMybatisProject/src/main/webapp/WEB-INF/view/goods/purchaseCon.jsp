@@ -13,13 +13,15 @@
 </head>
 <body>
 	<table style="width:800px">
-		<tbody>
+		<thead>
 			<tr>
-				<td>주문일(결제번호)</td>
-				<td>상품명/주문번호</td>
-				<td>판매자</td>
-				<td>주문상태</td>
+				<th>주문일(결제번호)</th>
+				<th>상품명/주문번호</th>
+				<th>판매자</th>
+				<th>주문상태</th>
 			</tr>
+		</thead>
+		<tbody>
 			<c:forEach items="${list}" var="dto">
 				<tr>
 					<td>${dto.purchaseDate} / ${dto.paymentApprNum}</td>

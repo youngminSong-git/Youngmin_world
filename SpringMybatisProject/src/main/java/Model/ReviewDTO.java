@@ -9,8 +9,7 @@ public class ReviewDTO {
 	String reviewContent;
 	String reviewImg;
 	String memId;
-	
-	
+
 	
 	public String getMemId() {
 		return memId;

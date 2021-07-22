@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,7 +50,7 @@
 											<c:forEach items="${lists}" var="dto">
 											<tr>
 												<th>
-													<a href="memInfo?memId=${dto.memId}">${dto.memId}</a>
+													<a href="memInfo/${dto.memId}">${dto.memId}</a>
 												</th>
 												<td>${dto.memName}</td>
 												<td>${dto.memPhone}</td>
@@ -61,25 +60,7 @@
 											</c:forEach>
 											<tr>
 												<td colspan="5">
-													<div class="page">
-														<div class="left" style="float:left;">
-															<c:if test="${page <= 1}">[이전]</c:if>
-															<c:if test="${page > 1}">
-																<a href="memList?page=${page - 1}">[이전]</a>
-															</c:if>
-														</div>
-														<div>
-															<c:forEach begin="${startPage }" end="${endPage }" var="i" step="1" >
-																<a href="memList?page=${i }">[${i }]</a> &nbsp;
-															</c:forEach>
-														</div>
-														<div class="right" style="float:right;">
-															<c:if test="${page >= maxPage }">[다음]</c:if>
-															<c:if test="${page < maxPage }">
-																<a href="${pageUrl }?page=${page + 1 }">[다음]</a>
-															</c:if>
-														</div>
-													</div>
+													<%@ include file="../include/includePage.jsp" %>
 												</td>
 											</tr>
 										</tbody>

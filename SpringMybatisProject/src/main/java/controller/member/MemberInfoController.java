@@ -27,12 +27,11 @@ public class MemberInfoController {
 	MemberListService memberListService;
 	@Autowired
 	MemberUpdateService memberUpdateService;
+	
 	@Autowired
 	MemberDeleteService memberDeleteService;
-
-	
 	@RequestMapping("memDel")
-	public String memDel( @RequestParam(value ="memId") String memId) {
+	public String memDel(@RequestParam(value = "memId") String memId) {
 		memberDeleteService.memDel(memId);
 		return "redirect:/";
 	}
@@ -53,15 +52,12 @@ public class MemberInfoController {
 		return "member/memberList";
 	}
 	@RequestMapping("memInfo/{memId}")
-	public String memInfo(
-			@PathVariable(value = "memId") String memId,
-			Model model) {
+	public String memInfo(@PathVariable(value = "memId") String memId, Model model) {
 		memberListService.memList(model,memId, 1);
 		return "member/memberInfo";
 	}
 	@RequestMapping("memMod/{memId}")
-	public String memMod(@PathVariable(value = "memId") String memId,
-			Model model) {
+	public String memMod(@PathVariable(value = "memId") String memId, Model model) {
 		memberListService.memList(model,memId, 1);
 		return "member/memberModify";
 	}

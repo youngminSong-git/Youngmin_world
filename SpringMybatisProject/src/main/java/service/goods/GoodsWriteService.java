@@ -56,6 +56,6 @@ public class GoodsWriteService {
 			}
 			dto.setProdImage(prodImage);
 		}
-			goodsRepository.goodsWrite(dto);
+		goodsRepository.goodsInsert(dto);
 	}
 }

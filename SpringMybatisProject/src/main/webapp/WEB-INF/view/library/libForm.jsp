@@ -10,24 +10,32 @@
 </style>
 </head>
 <body>
-	<form action="">
+	<form action="libwrite" method="post"  enctype="multipart/form-data">
 		<caption>자료실</caption>
 		<tbody>
 			<tr>
 				<th>제목</th>
-				<td></td>
+				<td>
+					<input type="text" name="noticeSub" />
+				</td>
 			</tr>
 			<tr>
 				<th>내용</th>
-				<td></td>
+				<td>
+					<textarea name="noticeCon" cols="30" rows="6"></textarea>
+				</td>
 			</tr>
 			<tr>
-				<th></th>
-				<td></td>
+				<th>파일</th>
+				<td>
+					<input type="file" name="noticeFile" multiple="multiple"/>
+				</td>
 			</tr>
 			<tr>
-				<th></th>
-				<td></td>
+				<td colspan="2">
+					<input type="submit" value="자료실 등록"/>
+					<input type="reset" value="초기화" />
+				</td>
 			</tr>
 		</tbody>
 	</form>

@@ -33,45 +33,45 @@
 							<tbody>
 								<tr>
 									<th>아이디</th>
-									<td>${mem.memId }</td>
+									<td>${lists[0].memId }</td>
 								</tr>
 								<tr>
 									<th>이름</th>
-									<td>${mem.memName }</td>
+									<td>${lists[0].memName }</td>
 								</tr>
 								<tr>
 									<th>생년월일</th>
 									<td>
-										<fmt:formatDate value='${mem.memBirth }' type='date' pattern='yyyy-MM-dd'/>
+										<fmt:formatDate value='${lists[0].memBirth }' type='date' pattern='yyyy-MM-dd'/>
 									</td>
 								</tr>
 								<tr>
 									<th>성별</th>
-									<td>${mem.memGender }</td>
+									<td>${lists[0].memGender }</td>
 								</tr>
 								<tr>
 									<th>우편번호</th>
-									<td>${mem.postNumber }</td>
+									<td>${lists[0].postNumber }</td>
 								</tr>
 								<tr>
 									<th>주소</th>
-									<td>${mem.memAddress }</td>
+									<td>${lists[0].memAddress }</td>
 								</tr>
 								<tr>
 									<th>상세주소</th>
-									<td>${mem.detailAdd }</td>
+									<td>${lists[0].detailAdd }</td>
 								</tr>
 								<tr>
 									<th>연락처</th>
-									<td>${mem.memPhone }</td>
+									<td>${lists[0].memPhone }</td>
 								</tr>
 								<tr>
 									<th>이메일</th>
-									<td>${mem.memEmail }</td>
+									<td>${lists[0].memEmail }</td>
 								</tr>
 								<tr>
 									<th>계좌번호</th>
-									<td>${mem.memAccount }</td>
+									<td>${lists[0].memAccount }</td>
 								</tr>
 								<tr>
 									<th>수신여부</th>
@@ -79,12 +79,12 @@
 										<div>
 											<ul>
 												<li>
-													<c:if test="${mem.memEmailCk == 'Y' }" > 
+													<c:if test="${lists[0].memEmailCk == 'Y' }" > 
 														이메일 수신 함
 													</c:if> 
 												</li>
 												<li>
-													<c:if test="${mem.memEmailCk == 'N'}" > 
+													<c:if test="${lists[0].memEmailCk == 'N'}" > 
 														이메일 수신 안함
 													</c:if>
 												</li>
@@ -94,7 +94,7 @@
 								</tr>
 							</tbody>
 						</table>
-						<a href="memModify?memId=${mem.memId}">수정</a>
+						<a href="../memMod/${lists.get(0).memId}">수정</a>
 					</div>
 				</div>
 			</div>
