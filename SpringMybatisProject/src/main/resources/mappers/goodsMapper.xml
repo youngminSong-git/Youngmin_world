@@ -216,13 +216,26 @@ order by purchaseNum desc
 	from products where PROD_NUM = #{prodNum}
 </select>
 
-<select id="goodsList" resultType="Model.GoodsDTO">
-	select PROD_NUM prodNum, PROD_NAME prodName, PROD_PRICE prodPrice, 
+<select id="goodsList" resultType="Model.GoodsDTO" 
+	parameterType="Model.GoodsDTO">
+select rn, prodNum, prodName, prodPrice,prodDetail, prodCapacity,
+		prodSupplyer, prodDelFee, recommend, employeeId, ctgr,
+		prodImage
+from (select rownum rn, PROD_NUM prodNum, PROD_NAME prodName, PROD_PRICE prodPrice, 
 			PROD_DETAIL prodDetail, PROD_CAPACITY prodCapacity, 
-			PRUD_SUPPLYER prudSupplyer, PROD_DEL_FEE prodDelFee, 
+			PRUD_SUPPLYER prodSupplyer, PROD_DEL_FEE prodDelFee, 
 			RECOMMEND recommend, EMPLOYEE_ID employeeId, CTGR ctgr, 
 			PROD_IMAGE prodImage
-	from products
+	from products)
+<where>
+	<if test="startEndPageDTO != null">
+		rn between #{startEndPageDTO.startRow} 
+     		and #{startEndPageDTO.endRow}
+	</if>
+</where>
+</select>
+<select id = "count" resultType="int" >
+	select count(*) from products
 </select>
 <insert id="goodsWrite" parameterType="Model.GoodsDTO">
 	insert into products(PROD_NUM, PROD_NAME, PROD_PRICE, PROD_DETAIL,

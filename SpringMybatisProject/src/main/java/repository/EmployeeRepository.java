@@ -40,9 +40,9 @@ public class EmployeeRepository {
 		statement = namespace + ".empInfo";
 		return sqlSession.selectOne(statement,empId);
 	}
-	public List<EmployeeDTO> empList(){
+	public List<EmployeeDTO> empList(EmployeeDTO dto){
 		statement = namespace + ".empList";
-		return sqlSession.selectList(statement);
+		return sqlSession.selectList(statement, dto);
 	}
 	public void empInsert(EmployeeDTO dto) {
 		statement = namespace + ".empInsert";
@@ -51,6 +51,10 @@ public class EmployeeRepository {
 	}
 	public String empNo() {
 		statement = namespace + ".empNo";
+		return sqlSession.selectOne(statement);
+	}
+	public int count() {
+		statement = namespace + ".count";
 		return sqlSession.selectOne(statement);
 	}
 }

@@ -6,7 +6,6 @@ import java.net.URLEncoder;
 
 import javax.activation.URLDataSource;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import command.MemberCommand;
 import service.member.MemberDeleteService;
-import service.member.MemberInfoService;
 import service.member.MemberListService;
 import service.member.MemberUpdateService;
 
@@ -31,15 +29,13 @@ public class MemberInfoController {
 	MemberUpdateService memberUpdateService;
 	@Autowired
 	MemberDeleteService memberDeleteService;
-	@Autowired
-	MemberInfoService memberInfoService;
-	 
+
+	
 	@RequestMapping("memDel")
-	public String memDel(@RequestParam(value = "memId") String memId) {
+	public String memDel( @RequestParam(value ="memId") String memId) {
 		memberDeleteService.memDel(memId);
 		return "redirect:/";
 	}
-	
 	@RequestMapping(value="memModifyOk", method = RequestMethod.POST)
 	public String memUpdate(MemberCommand memberCommand) {
 		memberUpdateService.memUpdate(memberCommand);
@@ -51,24 +47,22 @@ public class MemberInfoController {
 		}
 		return "redirect:memInfo/"+encodedParam;
 	}
-	
 	@RequestMapping("memList")
-	public String memList(Model model) {
-		memberListService.memList(model,null);
+	public String memList(@RequestParam(value="page" ,defaultValue = "1") Integer page, Model model) {
+		memberListService.memList(model,null,page);
 		return "member/memberList";
 	}
-	
 	@RequestMapping("memInfo/{memId}")
 	public String memInfo(
 			@PathVariable(value = "memId") String memId,
 			Model model) {
-		memberListService.memList(model,memId);
+		memberListService.memList(model,memId, 1);
 		return "member/memberInfo";
 	}
-	
 	@RequestMapping("memMod/{memId}")
-	public String memMod(@PathVariable(value = "memId") String memId, Model model) {
-		memberListService.memList(model,memId);
+	public String memMod(@PathVariable(value = "memId") String memId,
+			Model model) {
+		memberListService.memList(model,memId, 1);
 		return "member/memberModify";
 	}
 }

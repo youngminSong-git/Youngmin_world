@@ -68,9 +68,9 @@
 											</tr>
 											<tr>
 												<td>
-													<a href="register/agree">회원가입</a>
-													<a href="#">아이디</a> |
-													<a href="#">비밀번호 찾기</a>
+													<a href="search/idFind">아이디</a>/
+													<a href="search/findPassword" >비밀번호 찾기</a> | 
+													<a href="register/agree">회원 가입</a>
 												</td>
 											</tr>
 										</tbody>
@@ -141,6 +141,7 @@
 												<li><a href="emp/empList">직원리스트 바로가기</a></li>
 												<li><a href="goods/goodsList">상품리스트</a></li>
 												<li><a href="admin/noticeList">공지사항</a></li>
+												<li><a href="lib/libBoard">자료실</a></li>
 											</ul>
 										</div>
 									</div>

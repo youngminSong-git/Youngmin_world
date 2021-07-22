@@ -1,7 +1,7 @@
 package Model;
 
 import java.util.Date;
-//DTO는 디비에 값을 저장하거나 디비로 부터 값을 받아오기 위해서 사용
+/// DTO는 디비에 값을 저장하거나 디비로 부터 값을 받아오기 위해서 사용
 /// 그러므로 DTO의 속성은 디비에 있는 테이블과 같아야 한다. 
 /// DTO에 있는 속성은 데이블의 컬럼과 같아야 한다.
 public class MemberDTO {
@@ -18,8 +18,15 @@ public class MemberDTO {
 	String postNumber;
 	String detailAdd;
 	String ckOk;
+	StartEndPageDTO startEndPageDTO;
 	
-	
+	public StartEndPageDTO getStartEndPageDTO() {
+		return startEndPageDTO;
+	}
+	public void setStartEndPageDTO(StartEndPageDTO startEndPageDTO){
+		this.startEndPageDTO = startEndPageDTO;
+	}
+
 	
 	public String getCkOk() {
 		return ckOk;
@@ -27,6 +34,7 @@ public class MemberDTO {
 	public void setCkOk(String ckOk) {
 		this.ckOk = ckOk;
 	}
+	
 	public String getMemId() {
 		return memId;
 	}

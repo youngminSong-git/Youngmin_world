@@ -26,7 +26,7 @@ public class MainController {
 	
 	@RequestMapping("/search/idFindFinish")
 	public String idFindFinish(MemberCommand memberCommand, Model model) {
-		idFindFinish(memberCommand, model);
+		idFindFinishService.idFind(memberCommand, model);
 		return "main/idFind";
 	}
 	

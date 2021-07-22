@@ -6,6 +6,7 @@
 			http://www.springframework.org/schema/beans/spring-beans.xsd
 			"
 >
+	
 	<bean class="controller.admin.AdminController"/>
 	<bean class="service.notice.NoticeWriteService"/>
 	<bean class="repository.NoticeRepository"/>

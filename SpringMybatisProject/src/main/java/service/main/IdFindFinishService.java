@@ -15,7 +15,7 @@ public class IdFindFinishService {
 		dto.setMemEmail(memberCommand.getMemEmail());
 		dto.setMemPhone(memberCommand.getMemPhone());
 		dto.setMemName(memberCommand.getMemName());
-		dto = memberRepository.idFind(dto);
-		model.addAttribute("dto", dto);
+		String memId = memberRepository.idFind(dto);
+		model.addAttribute("memId", memId);
 	}
 }

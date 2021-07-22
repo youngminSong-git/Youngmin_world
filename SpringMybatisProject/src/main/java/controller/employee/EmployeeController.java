@@ -69,9 +69,10 @@ public class EmployeeController {
 	}
 	
 	//employeeList 맵핑 URL 생성
-	@RequestMapping(value="empList", method = RequestMethod.GET)
-	public String empList(Model model) {
-		employeeListService.empList(model);
+	@RequestMapping(value = "empList", method = RequestMethod.GET)
+	public String empList(Model model,
+		@RequestParam(value="page" , defaultValue = "1")Integer page) {
+		employeeListService.empList(model, page);
 		return "employee/employeeList";
 	}
 	

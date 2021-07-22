@@ -10,14 +10,13 @@ import Model.MemberDTO;
 public class MemberRepository {
 	@Autowired
 	SqlSession sqlSession;
+	
 	String namespace = "mappers.memberMapper";
 	String statement;
-	
-	public MemberDTO idFind(MemberDTO dto) {
+	public String idFind(MemberDTO dto) {
 		statement = namespace + ".idFind";
 		return sqlSession.selectOne(statement, dto);
 	}
-	
 	public int updateCkOk(MemberDTO dto) {
 		statement = namespace +".updateCkOk";
 		return sqlSession.update(statement, dto);
@@ -30,12 +29,6 @@ public class MemberRepository {
 		statement = namespace +".memPwUpdate";
 		sqlSession.update(statement, dto);
 	}
-	
-	public String memNo() {
-		statement = namespace + ".memNo";
-		return sqlSession.selectOne(statement);
-	}
-	
 	public MemberDTO memInfo(String memId) {
 		statement = namespace + ".memInfo";
 		return sqlSession.selectOne(statement, memId);
@@ -48,9 +41,13 @@ public class MemberRepository {
 		statement = namespace + ".memUpdate";
 		sqlSession.update(statement, dto);
 	}
-	public List<MemberDTO> memList(String memId) {
+	public Integer getMemberCount() {
+		statement = namespace +".getMemberCount";
+		return sqlSession.selectOne(statement);
+	}
+	public List<MemberDTO> memList(MemberDTO dto) {
 		statement = namespace +".memList";
-		return sqlSession.selectList(statement,memId);
+		return sqlSession.selectList(statement,dto);
 	}
 	public void memJoin(MemberDTO dto) {
 		statement = namespace + ".memJoin";

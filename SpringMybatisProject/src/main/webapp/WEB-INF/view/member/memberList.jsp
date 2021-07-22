@@ -59,6 +59,29 @@
 												<td>${dto.memAddress} ${dto.detailAdd}</td>
 											</tr>
 											</c:forEach>
+											<tr>
+												<td colspan="5">
+													<div class="page">
+														<div class="left" style="float:left;">
+															<c:if test="${page <= 1}">[이전]</c:if>
+															<c:if test="${page > 1}">
+																<a href="memList?page=${page - 1}">[이전]</a>
+															</c:if>
+														</div>
+														<div>
+															<c:forEach begin="${startPage }" end="${endPage }" var="i" step="1" >
+																<a href="memList?page=${i }">[${i }]</a> &nbsp;
+															</c:forEach>
+														</div>
+														<div class="right" style="float:right;">
+															<c:if test="${page >= maxPage }">[다음]</c:if>
+															<c:if test="${page < maxPage }">
+																<a href="${pageUrl }?page=${page + 1 }">[다음]</a>
+															</c:if>
+														</div>
+													</div>
+												</td>
+											</tr>
 										</tbody>
 									</table>
 									<div class="btn_wrap">
