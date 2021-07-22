@@ -141,6 +141,7 @@
 												<li><a href="emp/empList">직원리스트 바로가기</a></li>
 												<li><a href="goods/goodsList">상품리스트</a></li>
 												<li><a href="admin/noticeList">공지사항</a></li>
+												<li><a href="lib/libBoard">자료실</a></li>
 											</ul>
 										</div>
 									</div>
