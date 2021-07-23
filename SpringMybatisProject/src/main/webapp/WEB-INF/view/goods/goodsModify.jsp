@@ -8,7 +8,6 @@
 <meta charset="UTF-8">
 <!-- css  -->
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/common.css" />
-<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/main.css" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/asset/css/sub.css" />
 <title>Insert title here</title>
 <style>

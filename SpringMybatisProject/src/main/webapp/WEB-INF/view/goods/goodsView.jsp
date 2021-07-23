@@ -118,6 +118,27 @@
 					}
 				}
 			});
+			
+			$("#buy").click(function(){
+				var cartQty = $("#cartQty").val(),
+				prodNum = ${goodsReviews.goods.prodNum};
+				
+				$.ajax({
+					type: "post",
+					url: "<c:url value='/cart/goodsCartAdd' />",
+					dataType: "text",
+					data :{"cartQty" : cartQty, "prodNum" : prodNum, "prodPrice" : ${goodsReviews.goods.prodPrice} }, //json방식 > key : value
+					//json스타일이 아닐 때 : "ctq=" + cartQty + "&prodNum=" + prodNum
+					success : function(result){
+						if(result.trim() == "1"){
+							//정상적으로 장바구니에 상품이 등록되었을 때
+							if(confirm("계속 쇼핑하시려면 '아니오'를 클릭하세요.")){
+								location.href="<c:url value='/cart/goodsBuy' />";
+							}
+						}
+					}
+				});
+			});
 		});
 	});
 </script>

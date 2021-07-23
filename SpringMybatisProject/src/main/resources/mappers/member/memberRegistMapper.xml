@@ -3,7 +3,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.memberMapper">
 
-<select id="idFind" parameterType="Model.MemberDTO" resultType="string">
+<select id="idFind" parameterType="Model.MemberDTO" 
+	resultType="string">
 select rpad(substr(MEM_ID,1, 4), length(mem_id), '*') from member
 where mem_phone = #{memPhone} and MEM_EMAIL = #{memEmail} 
 and mem_name = #{memName} 
@@ -13,10 +14,11 @@ and mem_name = #{memName}
 <update id="updateCkOk" parameterType="Model.MemberDTO">
 	update member
 	set ckOk = #{ckOk}
-	where MEM_EMAIL = #{memEmail}
+	where MEM_EMAIL = #{memEmail} and ckOk is null
 </update>
 
-<select id="memInfo" parameterType="string" resultType="Model.MemberDTO">
+<select id="memInfo" parameterType="string" 
+		resultType="Model.MemberDTO">
 	select MEM_ID memId,MEM_PW memPw,MEM_ADDRESS memAddress, MEM_NAME memName,
 	 	   MEM_PHONE memPhone, MEM_BIRTH memBirth, MEM_GENDER memGender, 
 	 	   MEM_ACCOUNT memAccount, MEM_EMAIL memEmail, MEM_EMAIL_CK memEmailCk,
